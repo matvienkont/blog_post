@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { wrapper, State } from '../redux/store';
-import { Header } from '../components/Header';
+import { Header } from '../components/Header/Header';
 import axios from 'axios';
 import { fetchItems } from '../redux/actions';
+import { returnEntries } from '../components/Entry/Entry';
 
 export const Post = ({ post }) => {
+	const { comments } = post;
 	console.log(post);
 	return (
 		<div>
 			<Header />
-			<p>{post.id}</p>
-			<h3>{post.title}</h3>
-			<b>{post.body}</b>
+			{returnEntries([ post ])}
 		</div>
 	);
 };

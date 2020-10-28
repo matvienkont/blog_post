@@ -2,7 +2,18 @@ import React, { useState } from 'react';
 import { NextPage } from 'next';
 import Router from 'next/router';
 import axios from 'axios';
-import { Header } from '../components/Header';
+import { Header } from '../components/Header/Header';
+import {
+	FormWrapper,
+	InputWrapper,
+	TitleInput,
+	TextArea,
+	FormField,
+	Label,
+	TextLables,
+	PageTitle,
+	Button
+} from '../components/CreatePost/CreatePost';
 
 const Page: NextPage = () => {
 	const [ title, setTitle ] = useState('');
@@ -29,34 +40,37 @@ const Page: NextPage = () => {
 	return (
 		<React.Fragment>
 			<Header />
-			<div>
-				<p>New Post</p>
-				<form onSubmit={handleSubmit} action="/">
-					<div>
-						<label>
-							Title:
-							<input
+			<FormWrapper>
+				<PageTitle>What are you waiting for? Post! &#x1F608;</PageTitle>
+				<FormField as="form" onSubmit={handleSubmit} action="/">
+					<InputWrapper>
+						<Label>
+							<TextLables>Title</TextLables>
+							<TitleInput
+								as="input"
 								type="text"
 								value={title}
 								name="title"
 								onChange={(event) => setTitle(event.target.value)}
 								required
 							/>
-						</label>
-						<label>
-							Body:
-							<textarea
+						</Label>
+						<Label>
+							<TextLables>Post</TextLables>
+							<TextArea
+								as="textarea"
 								value={body}
 								name="body"
 								onChange={(event) => setBody(event.target.value)}
 								required
 							/>
-						</label>
-					</div>
-					<button type="submit">Submit</button>
-				</form>
-				<p>{body}</p>
-			</div>
+						</Label>
+						<Button as="button" type="submit">
+							Submit
+						</Button>
+					</InputWrapper>
+				</FormField>
+			</FormWrapper>
 		</React.Fragment>
 	);
 };

@@ -4,45 +4,24 @@ import type { State } from "./redux/store";
 import axios from "axios";
 import { fetchItems } from "./redux/actions";
 import { InferGetStaticPropsType } from 'next'
-import { LiElement, BodyContainer, UlWrapper } from "./styles/FeedPage";
 import React from "react";
-import { Header } from "./components/Header";
+import { Header } from "./components/Header/Header";
 import Link from "next/link";
 import styled from "styled-components";
+import { returnEntries } from "./components/Entry/Entry";
 
-interface IPosts {
-	id: number,
-	title?: string,
-	body?: string
-}
 
 export default function Home({ posts }) 
 {
 	const dispatch = useDispatch();
 	dispatch(fetchItems(posts));
 
+	
+
 	return (
         <React.Fragment>
             <Header />
-            <UlWrapper>
-				{posts.map((post: IPosts) => 
-				{
-					if(!post.title || !post.body)
-						return;
-					else {
-						return (
-						<div key={post.id}>
-							<Link href="/posts/[postId]" as={`/posts/${post.id}`}>
-								<div className="entry-container">
-									<LiElement>{post.title}</LiElement>
-									<BodyContainer>{post.body}</BodyContainer>
-								</div>
-							</Link>
-						</div>
-						)
-					}
-				})}
-            </UlWrapper>
+				{returnEntries(posts)}
         </React.Fragment>
 	);
 }

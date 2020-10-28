@@ -3,14 +3,14 @@ import { addReducer } from './reducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createWrapper, MakeStore, Context } from 'next-redux-wrapper';
 
-type Entry = {
+export type Entry = {
 	id: number;
 	title?: string;
 	body?: string;
 };
 
 export interface State {
-	posts: Entry[];
+	posts: Entry[] | {};
 }
 
 const makeStore: MakeStore<State> = (context: Context) =>
