@@ -1,9 +1,0 @@
-.link {
-    letter-spacing: 5px;
-    transition: all 0.7s ease;
-}
-
-.link:hover {
-    color: #95FF7D;
-    letter-spacing: 8px;
-}

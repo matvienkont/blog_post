@@ -28,4 +28,29 @@ const CommentContainer = styled.div`
 	box-shadow: 0px 0px 27px -13px rgba(0, 0, 0, 0.75);
 `;
 
-export { LiElement, BodyContainer, UlWrapper, CommentsWrapper, CommentContainer };
+const EntryContainer = styled.div`
+	& {
+		border-radius: 5px;
+		cursor: pointer;
+		background-color: #a1c687;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		padding: 20px;
+		width: 70%;
+		transition: all 1s ease, background-color 0.3s ease, transform 0.3s ease;
+		-webkit-box-shadow: 0px 0px 6px 0px rgba(101, 171, 121, 1);
+		-moz-box-shadow: 0px 0px 6px 0px rgba(101, 171, 121, 1);
+		box-shadow: 0px 0px 6px 0px rgba(101, 171, 121, 1);
+	}
+
+	$:hover {
+		border-radius: 15px;
+		transform: translateY(-5px);
+		background-color: #75c68c;
+		-webkit-box-shadow: 0px 7px 12px -2px rgba(89, 150, 106, 1);
+		-moz-box-shadow: 0px 7px 12px -2px rgba(89, 150, 106, 1);
+		box-shadow: 0px 7px 12px -2px #59966a;
+	}
+`;
+
+export { LiElement, BodyContainer, UlWrapper, CommentsWrapper, CommentContainer, EntryContainer };

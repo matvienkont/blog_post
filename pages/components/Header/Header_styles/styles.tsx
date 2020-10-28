@@ -20,10 +20,23 @@ const UlWrapper = styled.ul`
 `;
 
 const List = styled.li`
+	cursor: pointer;
 	color: white;
 	font-weight: bold;
 	font-size: 50px;
 	height: 100%;
 `;
 
-export { HeaderWrapper, UlWrapper, List };
+const NavLink = styled.a`
+	& {
+		letter-spacing: 5px;
+		transition: all 0.7s ease;
+	}
+
+	&:hover {
+		color: #95ff7d;
+		letter-spacing: 8px;
+	}
+`;
+
+export { HeaderWrapper, UlWrapper, List, NavLink };

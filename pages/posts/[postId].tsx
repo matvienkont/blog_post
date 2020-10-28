@@ -1,15 +1,10 @@
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
-import { wrapper, State } from '../redux/store';
+import React from 'react';
 import { Header } from '../components/Header/Header';
 import axios from 'axios';
-import { fetchItems } from '../redux/actions';
 import { returnEntries } from '../components/Entry/Entry';
+import { GetServerSidePropsContext } from 'next';
 
 export const Post = ({ post }) => {
-	const { comments } = post;
-	console.log(post);
 	return (
 		<div>
 			<Header />
@@ -18,7 +13,7 @@ export const Post = ({ post }) => {
 	);
 };
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
 	var postId = context.query.postId;
 	var post = {};
 	await axios

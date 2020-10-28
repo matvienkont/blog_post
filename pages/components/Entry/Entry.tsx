@@ -1,7 +1,14 @@
 import React from 'react';
 
 import Link from 'next/link';
-import { LiElement, BodyContainer, UlWrapper, CommentsWrapper, CommentContainer } from './Entry_styles/Entry_styles';
+import {
+	LiElement,
+	BodyContainer,
+	UlWrapper,
+	CommentsWrapper,
+	CommentContainer,
+	EntryContainer
+} from './Entry_styles/Entry_styles';
 
 type IPost = {
 	id: number;
@@ -27,10 +34,10 @@ export const returnEntries = (posts: IPost[]) => {
 						<React.Fragment>
 							<div key={post.id}>
 								<Link href="/posts/[postId]" as={`/posts/${post.id}`}>
-									<div className="entry-container">
+									<EntryContainer>
 										<LiElement>{post.title}</LiElement>
 										<BodyContainer>{post.body}</BodyContainer>
-									</div>
+									</EntryContainer>
 								</Link>
 							</div>
 							<CommentsWrapper>

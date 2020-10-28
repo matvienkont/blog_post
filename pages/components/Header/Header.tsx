@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { HeaderWrapper, UlWrapper, List } from './Header_styles/styles';
+import { HeaderWrapper, UlWrapper, List, NavLink } from './Header_styles/styles';
 
 export const Header = () => {
 	return (
@@ -8,12 +8,12 @@ export const Header = () => {
 			<UlWrapper>
 				<List>
 					<Link href="/">
-						<a className="link">Feed</a>
+						<NavLink>Feed</NavLink>
 					</Link>
 				</List>
 				<List>
 					<Link href="/posts/new">
-						<a className="link">Add Post</a>
+						<NavLink>Add Post</NavLink>
 					</Link>
 				</List>
 			</UlWrapper>
