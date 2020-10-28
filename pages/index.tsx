@@ -4,7 +4,7 @@ import type { State } from "./redux/store";
 import axios from "axios";
 import { fetchItems } from "./redux/actions";
 import { InferGetStaticPropsType } from 'next'
-import { LiElement, Entry, UlWrapper } from "./styles/FeedPage";
+import { LiElement, BodyContainer, UlWrapper } from "./styles/FeedPage";
 import React from "react";
 import { Header } from "./components/Header";
 import Link from "next/link";
@@ -25,21 +25,29 @@ export default function Home({ posts })
         <React.Fragment>
             <Header />
             <UlWrapper>
-                {posts.map((post: IPosts) => (
-                    <div key={post.id}>
-                        <Link href={`/posts/${post.id}`}>
-                            <Entry>
-                                <LiElement key={post.id}>{post.title}</LiElement>
-                            </Entry>
-                        </Link>
-                    </div>
-                ))}
+				{posts.map((post: IPosts) => 
+				{
+					if(!post.title || !post.body)
+						return;
+					else {
+						return (
+						<div key={post.id}>
+							<Link href="/posts/[postId]" as={`/posts/${post.id}`}>
+								<div className="entry-container">
+									<LiElement>{post.title}</LiElement>
+									<BodyContainer>{post.body}</BodyContainer>
+								</div>
+							</Link>
+						</div>
+						)
+					}
+				})}
             </UlWrapper>
         </React.Fragment>
 	);
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 	var posts = {};
 	await axios.get('https://simple-blog-api.crew.red/posts')
 	.then(async function (response) {

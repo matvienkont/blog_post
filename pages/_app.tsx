@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import App from 'next/app';
-import "../styles/Header.css";
 import "../styles/Feed.css";
+import "../styles/Header.css";
 import { Provider } from "react-redux"
 import withRedux from "next-redux-wrapper";
 import {wrapper} from './redux/store';

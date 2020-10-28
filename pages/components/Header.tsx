@@ -1,21 +1,22 @@
 import React from 'react';
 import Link from 'next/link';
+import { HeaderWrapper, UlWrapper, List } from './Header_styles/styles';
 
 export const Header = () => {
 	return (
-		<div className="headerWrapper">
-			<ul>
-				<li>
+		<HeaderWrapper>
+			<UlWrapper>
+				<List>
 					<Link href="/">
-						<a>Feed</a>
+						<a className="link">Feed</a>
 					</Link>
-				</li>
-				<li>
+				</List>
+				<List>
 					<Link href="/posts/new">
-						<a>Add Post</a>
+						<a className="link">Add Post</a>
 					</Link>
-				</li>
-			</ul>
-		</div>
+				</List>
+			</UlWrapper>
+		</HeaderWrapper>
 	);
 };

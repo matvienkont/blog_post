@@ -1,17 +1,16 @@
 import styled from 'styled-components';
 
 const LiElement = styled.li`
-	color: palevioletred;
+	color: black;
 	font-weight: bold;
+	font-size: 20px;
 `;
 
-const Entry = styled.div`
-	background-color: yellow;
-	margin: 0 auto;
-	margin-bottom: 5px;
+const BodyContainer = styled.div`
+	padding: 10px;
 	width: 70%;
 `;
 
 const UlWrapper = styled.ul`list-style-type: none;`;
 
-export { LiElement, Entry, UlWrapper };
+export { LiElement, BodyContainer, UlWrapper };
