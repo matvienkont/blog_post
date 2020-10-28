@@ -1,0 +1,7 @@
+.headerWrapper {
+    background-color: cadetblue;   
+}
+
+.headerWrapper > ul {
+    list-style-type: none;
+}
