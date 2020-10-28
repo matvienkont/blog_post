@@ -43,7 +43,7 @@ const EntryContainer = styled.div`
 		box-shadow: 0px 0px 6px 0px rgba(101, 171, 121, 1);
 	}
 
-	$:hover {
+	&:hover {
 		border-radius: 15px;
 		transform: translateY(-5px);
 		background-color: #75c68c;
